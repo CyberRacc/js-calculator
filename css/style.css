@@ -23,13 +23,13 @@ body {
     display: flex;
     align-items: center;
     flex-direction: column;
-    width: 400px;
-    height: 500px;
-    border: 4px solid black;
+    width: 250px;
+    height: 550px;
+    border: 4px solid rgba(167, 112, 60, 0.637);
     border-radius: 16px;
     flex-shrink: 0;
     padding: 8px;
-    background-color: rgb(222, 222, 222);
+    background-color: rgb(255, 255, 255);
 }
 
 .calc-screen-container {
@@ -47,26 +47,32 @@ body {
 
 .calc-screen {
     display: flex;
-    border: 2px solid black;
+    border: 2px solid rgb(136, 93, 0);
     border-radius: 8px;
     margin: 12px;
     height: 100px;
     width: 100%;
-    background-color: rgba(0, 77, 0, 0.597);
+    background-color: rgb(255, 209, 110);
 }
 
 .screen-text {
     font-family: 'Raleway', sans-serif;
+    color: white;
+    font-size: 32px;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    text-align: right;
+    padding: 12px;
 }
 
 .calc-buttons {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: space-evenly;
     flex-direction: row;
     flex-wrap: wrap;
-    height: 200px;
-    width: 200px;
+    height: auto;
+    width: 100%;
 }
 
 .calc-button {
