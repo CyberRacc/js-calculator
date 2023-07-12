@@ -1,20 +1,27 @@
 const buttons = document.querySelectorAll(".calc-button");
 const screenText = document.querySelector(".screen-text");
 
-buttons.forEach((button) => button.addEventListener("click", function (e) {
-    console.log(e);
-    let buttonPressed = e.target.id;
-    console.log(buttonPressed);
+buttons.forEach((button) => button.addEventListener("click", e => {
+    let buttonPressed = e.target.dataset.num;
     screenText.textContent = `${buttonPressed}`;
 }));
 
-buttons.forEach((button) => button.addEventListener("mouseover", function (e) {
+buttons.forEach((button) => button.addEventListener("mouseover", e => {
     button.classList.add("button-hover");
 }));
 
-buttons.forEach((button) => button.addEventListener("mouseout", function (e) {
+buttons.forEach((button) => button.addEventListener("mouseout", e => {
     button.classList.remove("button-hover");
+    button.classList.remove("button-click");
 }));
+
+buttons.forEach((button) => button.addEventListener("mousedown", e => {
+    button.classList.add("button-click")
+}))
+
+buttons.forEach((button) => button.addEventListener("mouseup", e => {
+    button.classList.remove("button-click")
+}))
 
 let add = function(a, b) {
     return Number(a) + Number(b);
