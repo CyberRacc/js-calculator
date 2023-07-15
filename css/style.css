@@ -85,7 +85,7 @@ body {
     width: 100%;
 }
 
-.calc-button, .calc-equals {
+.calc-button, .calc-equals, .calc-backspace {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -105,7 +105,7 @@ body {
     -webkit-backdrop-filter: blur(5px);
 }
 
-.calc-button img {
+.calc-backspace img {
     width: 35px;
     height: auto;
 }
@@ -131,6 +131,10 @@ body {
     padding: 6px;
     border: 4px solid black;
 }
+
+img {
+    pointer-events: none;
+  }
 
 .footer {
     font-family: 'Raleway', sans-serif;

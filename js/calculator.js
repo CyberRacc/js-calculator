@@ -13,7 +13,9 @@ buttons.forEach((button) => button.addEventListener("click", e => {
 }));
 
 deleteButton.addEventListener("click", e => {
-    screenData -= buttonPressed;
+    screenArray = screenData.split("");
+    screenArray.splice(screenArray.length - 1, 1);
+    screenData = screenArray.join("");
     screenText.textContent = screenData;
 });
 
@@ -40,6 +42,24 @@ equalsButton.addEventListener("mousedown", e => {
 
 equalsButton.addEventListener("mouseup", e => {
     equalsButton.classList.remove("button-click");
+});
+
+equalsButton.addEventListener("mouseout", e => {
+    equalsButton.classList.remove("button-hover");
+    equalsButton.classList.remove("button-click");
+});
+
+deleteButton.addEventListener("mousedown", e => {
+    deleteButton.classList.add("button-click");
+});
+
+deleteButton.addEventListener("mouseup", e => {
+    deleteButton.classList.remove("button-click");
+});
+
+deleteButton.addEventListener("mouseout", e => {
+    deleteButton.classList.remove("button-hover");
+    deleteButton.classList.remove("button-click");
 });
 
 equalsButton.addEventListener("click", e => {
@@ -71,7 +91,7 @@ let operate = function() {
 
     const input = screenData;
 
-    let components = input.match(/[\d.]+|[+/*-]/g);
+    let components = input.match(/[\d.]+|[+/*÷-]/g);
     
     if (components && components.length === 3) { // ensure we have three components
 
@@ -91,7 +111,7 @@ let operate = function() {
             case "*":
                 result = multiply(num1, num2);
                 break;
-            case "/":
+            case "÷":
                 if(num2 !== 0) {
                     result = divide(num1, num2);
                 } else {
