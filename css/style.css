@@ -86,7 +86,7 @@ body {
     width: 100%;
 }
 
-.calc-button, .calc-equals, .calc-backspace {
+.calc-button, .calc-equals, .calc-backspace, .calc-clear {
     display: flex;
     align-items: center;
     justify-content: center;
