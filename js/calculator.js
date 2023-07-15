@@ -6,10 +6,18 @@ const deleteButton = document.querySelector("#backspace");
 
 let screenData = "";
 
+// if screenData.lenth > 16 {stop adding to the screen}
+
+
 buttons.forEach((button) => button.addEventListener("click", e => {
     let buttonPressed = e.target.dataset.num;
-    screenData += buttonPressed;
-    screenText.textContent = screenData;
+
+    if (screenData.length < 16) {
+        screenData += buttonPressed;
+        screenText.textContent = screenData;
+    } else {
+        screenData;
+    }
 }));
 
 deleteButton.addEventListener("click", e => {
@@ -18,6 +26,7 @@ deleteButton.addEventListener("click", e => {
     screenData = screenArray.join("");
     screenText.textContent = screenData;
 });
+
 
 buttons.forEach((button) => button.addEventListener("mouseover", e => {
     button.classList.add("button-hover");
@@ -122,7 +131,6 @@ let operate = function() {
             default:
                 return; // if the operator is not known, exit the function
         }
-
         screenData = result.toString();
         screenText.textContent = screenData; // update the screen with the result
     }
