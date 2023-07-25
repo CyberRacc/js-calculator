@@ -52,9 +52,14 @@ let eventListeners = function() {
     }));    
     
     deleteButton.addEventListener("click", e => {
-        screenArray = screenData.split("");
-        screenArray.splice(screenArray.length - 1, 1);
-        screenData = screenArray.join("");
+        if (nextNum) {
+            nextNum = nextNum.slice(0, -1);
+        } else if (currentOp) {
+            currentOp = null;
+        } else if (currentNum) {
+            currentNum = currentNum.slice(0, -1);
+        }
+        screenData = currentNum + (currentOp || '') + nextNum;
         screenText.textContent = screenData;
     });
     
